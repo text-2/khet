@@ -256,27 +256,64 @@
                 justify-content: center;
                 text-align: center;
                 padding: 2rem 1rem;
+                height: auto;
+                min-height: 100vh;
             }
             .hero-text-container {
                 max-width: 100%;
                 padding-right: 0;
                 margin-bottom: 2rem;
+                order: 1;
             }
             .hero-image-container {
                 width: 100%;
-                height: 45vh; /* Reduce height for mobile */
+                height: 40vh;
                 align-items: center;
+                order: 2;
+                margin-top: 1rem;
             }
             .hero-main-image {
-                max-height: 90%;
-                max-width: 85%;
+                max-height: 100%;
+                max-width: 100%;
+                object-fit: contain;
             }
             .floating-icon {
-                display: none; /* Hide floating icons on small screens if they clutter */
+                display: none;
             }
             /* Header mobile menu styles */
             #mobile-menu {
                 display: flex;
+            }
+            /* Mobile hero text adjustments */
+            .hero-text-container h1 {
+                font-size: 1.5rem;
+                line-height: 1.4;
+                margin-bottom: 1rem;
+            }
+            .hero-text-container p {
+                font-size: 0.9rem;
+                line-height: 1.5;
+            }
+            .animated-gradient-text {
+                font-size: 1.3rem;
+                margin-top: 0.5rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero-content-area {
+                padding: 1rem 0.5rem;
+            }
+            .hero-text-container h1 {
+                font-size: 1.3rem;
+            }
+            .hero-text-container p {
+                font-size: 0.85rem;
+            }
+            .animated-gradient-text {
+                font-size: 1.1rem;
+            }
+            .hero-image-container {
+                height: 35vh;
             }
         }
         #mobile-menu {
@@ -454,61 +491,145 @@
     </section>
 
     <!-- About Us Section (New section as per nav) -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="about">
-        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-12">
-            <!-- Hình minh họa nghệ thuật trẻ trung -->
-            <div class="flex-1 flex justify-center mb-8 md:mb-0" data-aos="fade-right">
-                <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#fff] to-[#f8e9ef] flex items-center justify-center">
-                    <img src="media/IMG_20250605224236937.png" alt="Khet Illustration" class="w-72 h-72 md:w-88 md:h-88 object-cover rounded-2xl shadow-lg opacity-90">
-                    <!-- Hiệu ứng bóng mờ -->
-                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-[#c1003b]/10 rounded-full blur-2xl"></div>
-                    <div class="absolute -bottom-8 -left-8 w-20 h-20 bg-[#c1003b]/20 rounded-full blur-2xl"></div>
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white via-gray-50/50 to-white" id="about">
+        <div class="container mx-auto max-w-7xl">
+            <!-- Section Header -->
+            <div class="text-center mb-16" data-aos="fade-up">
+                <div class="inline-flex items-center gap-3 bg-[#c1003b]/10 text-[#c1003b] px-6 py-3 rounded-full mb-6">
+                    <i class="fas fa-rocket text-xl"></i>
+                    <span class="font-semibold text-lg">Về chúng tôi</span>
                 </div>
-            </div>
-            
-            <!-- Nội dung giới thiệu -->
-            <div class="flex-1" data-aos="fade-left">
-                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 flex items-center gap-3">
-                    <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-bolt"></i></span>
-                    Giới thiệu <span class="text-[#c1003b]">chung</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4">
+                    Nâng tầm <span class="text-[#c1003b]">giá trị</span> giải trí
                 </h2>
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 md:p-8 border border-[#c1003b]/10">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-                        <div>
-                            <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-film"></i> Lĩnh vực hoạt động</h3>
-                            <ul class="list-disc list-inside text-gray-600 text-base pl-2">
-                                <li>Phim ảnh, Âm nhạc, Giới trẻ, Showbiz</li>
-                                <li>Thương hiệu, Đời sống, Ngôi sao</li>
-                            </ul>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Khet Entertainment - Nền tảng truyền thông số hàng đầu, kết nối giới trẻ với thế giới nghệ thuật đầy sáng tạo và năng động
+                </p>
+            </div>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Left: Visual Content -->
+                <div class="relative" data-aos="fade-right">
+                    <!-- Main Image Container -->
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-[#c1003b]/20 to-[#ff6a00]/20 rounded-3xl blur-xl"></div>
+                        <div class="relative bg-white rounded-3xl p-8 shadow-2xl border border-[#c1003b]/10">
+                            <img src="media/IMG_20250605224236937.png" alt="Khet Entertainment Team" class="w-full h-auto rounded-2xl shadow-lg">
+                            
+                            <!-- Floating Stats Cards -->
+                            <div class="absolute -top-6 -right-6 bg-white rounded-2xl shadow-xl p-4 border border-[#c1003b]/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-[#c1003b]/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-users text-[#c1003b] text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">100K+</div>
+                                        <div class="text-sm text-gray-600">Theo dõi</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl p-4 border border-[#c1003b]/10">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-12 h-12 bg-[#c1003b]/10 rounded-full flex items-center justify-center">
+                                        <i class="fas fa-play text-[#c1003b] text-xl"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-2xl font-bold text-gray-900">10+</div>
+                                        <div class="text-sm text-gray-600">Kênh TikTok</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-calendar-alt"></i> Thời gian hoạt động</h3>
-                            <ul class="list-disc list-inside text-gray-600 text-base pl-2">
-                                <li>Hoạt động trở lại từ tháng 2/2025</li>
-                                <li>Đang phát triển hệ thống kênh & fanpage về âm nhạc, showbiz</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="mb-4">
-                        <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-share-alt"></i> Nền tảng xã hội</h3>
-                        <ul class="list-disc list-inside text-gray-600 text-base pl-2">
-                            <li>Page chính: <b>Khet Entertainment</b></li>
-                            <li>Kênh chính: <b>Khet News</b> (~100.000 lượt theo dõi)</li>
-                            <li>10 kênh TikTok (lớn nhất: Tin Tức Showbiz ~800.000 lượt theo dõi)</li>
-                            <li>Page Facebook, TikTok, YouTube</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-newspaper"></i> Nội dung đăng tải</h3>
-                        <ul class="list-disc list-inside text-gray-600 text-base pl-2">
-                            <li>Tin tức nghệ sĩ Việt, chương trình thực tế, sản phẩm âm nhạc, phim ảnh</li>
-                            <li>Campaign truyền thông, tác nghiệp họp báo, sự kiện, tin hot trong ngày</li>
-                        </ul>
                     </div>
                 </div>
-                <div class="mt-4 text-base text-gray-600 flex flex-col gap-1">
-                    <span><b>Liên hệ quảng cáo:</b> <a href="tel:0899864943" class="text-[#c1003b] font-semibold hover:underline">0899 864 943 (Mr. Khánh)</a></span>
-                    <span class="text-xs text-gray-400">@BY INO MEDIA – KHET ENTERTAINMENT</span>
+
+                <!-- Right: Content -->
+                <div class="space-y-8" data-aos="fade-left">
+                    <!-- Company Overview -->
+                    <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-[#c1003b]/10">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-2xl flex items-center justify-center">
+                                <i class="fas fa-building text-white text-2xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-gray-900">Tổng quan công ty</h3>
+                                <p class="text-gray-600">Chào mừng đến với chúng tôi </p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 leading-relaxed text-lg">
+                            Khet Entertainment là nền tảng truyền thông số chuyên nghiệp, hướng tới giới trẻ năng động, yêu thích nghệ thuật và cập nhật xu hướng. Chúng tôi mang lại trải nghiệm giải trí đa dạng, chất lượng cao.
+                        </p>
+                    </div>
+
+                    <!-- Key Information Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Lĩnh vực hoạt động -->
+                        <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-[#c1003b]/10 hover:scale-105 transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 bg-[#c1003b]/10 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-film text-[#c1003b] text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">Lĩnh vực hoạt động</h4>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-[#c1003b] text-sm"></i>
+                                    <span>Phim ảnh, Âm nhạc, Showbiz</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-[#c1003b] text-sm"></i>
+                                    <span>Giới trẻ, Thương hiệu, Đời sống</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fas fa-check text-[#c1003b] text-sm"></i>
+                                    <span>Ngôi sao, Beauty Queen</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Nền tảng xã hội -->
+                        <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-6 shadow-xl border border-[#c1003b]/10 hover:scale-105 transition-all duration-300">
+                            <div class="flex items-center gap-3 mb-4">
+                                <div class="w-12 h-12 bg-[#c1003b]/10 rounded-xl flex items-center justify-center">
+                                    <i class="fas fa-share-alt text-[#c1003b] text-xl"></i>
+                                </div>
+                                <h4 class="font-bold text-gray-900">Nền tảng xã hội</h4>
+                            </div>
+                            <ul class="space-y-2 text-gray-700">
+                                <li class="flex items-center gap-2">
+                                    <i class="fab fa-facebook text-[#c1003b]"></i>
+                                    <span><b>Khet Entertainment</b> (Page chính)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fab fa-youtube text-[#c1003b]"></i>
+                                    <span><b>Khet News</b> (~100K followers)</span>
+                                </li>
+                                <li class="flex items-center gap-2">
+                                    <i class="fab fa-tiktok text-[#c1003b]"></i>
+                                    <span>10 kênh TikTok (lớn nhất ~800K)</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="bg-gradient-to-r from-[#c1003b]/10 to-[#ff6a00]/10 rounded-2xl p-6 border border-[#c1003b]/20">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-[#c1003b] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-phone text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-gray-900">Liên hệ quảng cáo</h4>
+                                <p class="text-gray-600">Mr. Khánh - Chuyên viên kinh doanh</p>
+                            </div>
+                        </div>
+                        <a href="tel:0899864943" class="inline-flex items-center gap-3 bg-[#c1003b] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#a00030] transition-all duration-300 shadow-lg">
+                            <i class="fas fa-phone"></i>
+                            <span>0899 864 943</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
