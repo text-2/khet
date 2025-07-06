@@ -320,6 +320,9 @@
             transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
             will-change: transform;
             transform: translateX(100%);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
         @media (min-width: 768px) {
             #main-header {
@@ -393,15 +396,15 @@
                     <div class="flex items-center space-x-2">
                         <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-envelope text-[#c1003b]"></i></span>
                         <div class="flex flex-col text-left">
-                            <span class="font-bold text-base">Mail Address</span>
-                            <span class="text-sm">hello@khetentertainment.com</span>
+                            <span class="font-bold text-base">Email Khet </span>
+                            <span class="text-sm">khetnews@gmail.com</span>
                         </div>
                     </div>
                     <div class="flex items-center space-x-2">
                         <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-phone text-[#c1003b]"></i></span>
                         <div class="flex flex-col text-left">
-                            <span class="font-bold text-base">Phone Number</span>
-                            <span class="text-sm">+842835350969</span>
+                            <span class="font-bold text-base">Zalo Phone</span>
+                            <span class="text-sm"> 0899864943</span>
                         </div>
                     </div>
                 </div>
@@ -412,22 +415,23 @@
                 <div class="flex items-center space-x-2 md:hidden">
                     <img src="https://placehold.co/100x40/c1003b/ffffff?text=K+KHET" alt="Khet Entertainment Logo" class="h-10 rounded-md shadow-sm">
                 </div>
+                
                 <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#about" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">Giới Thiệu</a>
                     <a href="#blog" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">BÀI ĐĂNG</a>
-                    <a href="#ecosystem" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">KẾ HOẠCH</a>
-                    <a href="#achievements" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">ACHIEVEMENT</a>
-                    <a href="#partners" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">PARTNERS</a>
-                    <a href="#team" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">CORE TEAM</a>
-                    <a href="#contact" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">CONTACT US</a>
+                    <a href="#ecosystem" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">CÁC KÊNH NỔI BẬT</a>
+                    <a href="#achievements" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">KẾ HOẠCH</a>
+                    <a href="#partners" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">KÊNH</a>
+                    <a href="#team" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">THÀNH VIÊN</a>
+                    <a href="#contact" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">LIÊN HỆ</a>
                 </nav>
                 <!-- Action Buttons -->
                 <div class="hidden md:flex items-center space-x-4">
                     <!-- Download App Button -->
-                    <a href="#download" class="inline-flex items-center gap-2 bg-[#c1003b] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#a00030] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
-                        <i class="fas fa-download text-sm"></i>
-                        <span>Tải App</span>
+                    <a href="https://www.facebook.com/khetentertainment" class="inline-flex items-center gap-2 bg-[#c1003b] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#a00030] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <i class=""></i>
+                        <span>Fanpage</span>
                     </a>
                     <!-- Sign In Button -->
                     <a href="#signin" class="inline-flex items-center gap-2 border-2 border-[#c1003b] text-[#c1003b] px-4 py-2 rounded-lg font-semibold hover:bg-[#c1003b] hover:text-white transition-all duration-300">
@@ -449,19 +453,68 @@
                 </button>
             </div>
             <!-- Mobile Menu (hidden by default) -->
-            <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 text-xl font-semibold text-gray-800 transition-all duration-300 transform translate-x-full md:hidden">
-                <button id="close-mobile-menu" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 transition-all duration-200" aria-label="Close menu">
+            <div id="mobile-menu" class="fixed inset-0 bg-white backdrop-blur-xl z-50 flex flex-col items-center justify-center space-y-6 text-xl font-semibold text-gray-800 transition-all duration-300 transform translate-x-full md:hidden">
+                <button id="close-mobile-menu" class="absolute top-6 right-6 w-12 h-12 flex items-center justify-center rounded-full bg-gray-100 hover:bg-gray-200 transition-all duration-200 backdrop-blur-sm" aria-label="Close menu">
                     <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
-                <a href="#about" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ABOUT US</a>
-                <a href="#blog" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">BÀI ĐĂNG</a>
-                <a href="#ecosystem" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ECOSYSTEM</a>
-                <a href="#achievements" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ACHIEVEMENT</a>
-                <a href="#partners" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">PARTNERS</a>
-                <a href="#team" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">CORE TEAM</a>
-                <a href="#contact" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">CONTACT US</a>
+                
+                <!-- Logo in mobile menu -->
+                <div class="mb-8">
+                    <img src="https://placehold.co/120x50/c1003b/ffffff?text=KHET" alt="Khet Entertainment Logo" class="h-12 rounded-md shadow-lg">
+                </div>
+                
+                <!-- Menu Items -->
+                <a href="#about" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-info-circle w-6"></i>
+                    <span>Giới Thiệu</span>
+                </a>
+                <a href="#blog" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-newspaper w-6"></i>
+                    <span>Bài Đăng</span>
+                </a>
+                <a href="#ecosystem" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-layer-group w-6"></i>
+                    <span>Kế Hoạch</span>
+                </a>
+                <a href="#achievements" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-trophy w-6"></i>
+                    <span>Achievement</span>
+                </a>
+                <a href="#partners" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-handshake w-6"></i>
+                    <span>Partners</span>
+                </a>
+                <a href="#team" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-users w-6"></i>
+                    <span>Core Team</span>
+                </a>
+                <a href="#contact" class="mobile-menu-item hover:text-[#c1003b] transition-colors duration-200 flex items-center gap-3" onclick="closeMobileMenu()">
+                    <i class="fas fa-envelope w-6"></i>
+                    <span>Contact Us</span>
+                </a>
+                
+                <!-- Divider -->
+                <div class="w-32 h-px bg-gray-300 my-4"></div>
+                
+                <!-- Action Buttons -->
+                <div class="flex flex-col gap-4 w-full max-w-xs">
+                    <a href="#download" class="inline-flex items-center justify-center gap-2 bg-[#c1003b] text-white px-6 py-3 rounded-xl font-semibold hover:bg-[#a00030] transition-all duration-300 shadow-lg">
+                        <i class="fas fa-download text-sm"></i>
+                        <span>Tải App</span>
+                    </a>
+                    <a href="#signin" class="inline-flex items-center justify-center gap-2 border-2 border-[#c1003b] text-[#c1003b] px-6 py-3 rounded-xl font-semibold hover:bg-[#c1003b] hover:text-white transition-all duration-300">
+                        <i class="fas fa-user text-sm"></i>
+                        <span>Đăng nhập</span>
+                    </a>
+                </div>
+                
+                <!-- Contact Info -->
+                <div class="mt-8 text-center text-sm text-gray-600">
+                    <p class="mb-2">Liên hệ quảng cáo:</p>
+                    <a href="tel:0899864943" class="text-[#c1003b] font-semibold hover:underline">0899 864 943</a>
+                </div>
             </div>
         </div>
     </header>
@@ -784,28 +837,232 @@
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
                 <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
-                Đối tác <span class="text-[#c1003b]">Chiến lược</span> của chúng tôi
+                Hệ Thống <span class="text-[#c1003b]">Kênh</span> của chúng tôi
             </h2>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
-                <!-- Partner Card 1 -->
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner1" alt="Yotel" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+            
+            <!-- Channel Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-12">
+                <!-- Page Khet News (100k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-newspaper text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Page Khet News</h3>
+                                <p class="text-sm text-gray-600">Tin tức & Giải trí</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">100K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                 </div>
-                <!-- Partner Card 2 -->
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner2" alt="EMVN" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+
+                <!-- Khet Showbiz (821k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-star text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet Showbiz</h3>
+                                <p class="text-sm text-gray-600">Showbiz & Ngôi sao</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">821K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                 </div>
-                <!-- Partner Card 3 -->
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner3" alt="Theanh28" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+
+                <!-- Khet News (400k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-broadcast-tower text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet News</h3>
+                                <p class="text-sm text-gray-600">Tin tức tổng hợp</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">400K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                 </div>
-                <!-- Partner Card 4 -->
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner4" alt="VECorp" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+
+                <!-- Khet Entertainment (101K) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-film text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet Entertainment</h3>
+                                <p class="text-sm text-gray-600">Giải trí & Phim ảnh</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">101K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
                 </div>
-                <!-- Partner Card 5 -->
-                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
-                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner5" alt="TrueDigital" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+
+                <!-- Khet Sô Bồ (100k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="400">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-comments text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet Sô Bồ</h3>
+                                <p class="text-sm text-gray-600">Gossip & Tin hot</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">100K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Khet Music (100k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-music text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet Music</h3>
+                                <p class="text-sm text-gray-600">Âm nhạc & Ca sĩ</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">100K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sô Bồ Trending (44k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="600">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-fire text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Sô Bồ Trending</h3>
+                                <p class="text-sm text-gray-600">Xu hướng hot</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">44K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Sô Bồ News (14k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="700">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-newspaper text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Sô Bồ News</h3>
+                                <p class="text-sm text-gray-600">Tin tức mới</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">14K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Gặp Sao Ngoài Đời (3k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="800">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-user-friends text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Gặp Sao Ngoài Đời</h3>
+                                <p class="text-sm text-gray-600">Gặp gỡ ngôi sao</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">3K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Khet Hóng Hớt (3k) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="900">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-[#c1003b] to-[#ff6a00] rounded-xl flex items-center justify-center">
+                                <i class="fas fa-eye text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khet Hóng Hớt</h3>
+                                <p class="text-sm text-gray-600">Theo dõi tin hot</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-[#c1003b] font-bold text-lg">3K</span>
+                            <i class="fas fa-arrow-right text-[#c1003b] group-hover:translate-x-1 transition-transform"></i>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Khetsaigon (chưa chạy) -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="1000">
+                    <a href="#" class="block">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-500 rounded-xl flex items-center justify-center">
+                                <i class="fas fa-city text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-gray-900 group-hover:text-[#c1003b] transition">Khetsaigon</h3>
+                                <p class="text-sm text-gray-600">Sắp ra mắt</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-gray-500 font-bold text-lg">Coming Soon</span>
+                            <i class="fas fa-clock text-gray-500"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Total Followers Summary -->
+            <div class="text-center" data-aos="fade-up" data-aos-delay="1100">
+                <div class="inline-flex items-center gap-4 bg-gradient-to-r from-[#c1003b]/10 to-[#ff6a00]/10 rounded-2xl p-6 border border-[#c1003b]/20">
+                    <div class="w-16 h-16 bg-[#c1003b] rounded-full flex items-center justify-center">
+                        <i class="fas fa-users text-white text-2xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="text-2xl font-bold text-gray-900">Tổng cộng</h3>
+                        <p class="text-[#c1003b] font-bold text-3xl">1.686K+ Followers</p>
+                        <p class="text-gray-600 text-sm">Trên toàn bộ hệ thống kênh</p>
+                    </div>
                 </div>
             </div>
         </div>
