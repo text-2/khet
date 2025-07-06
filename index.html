@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khet Entertainment - Nâng tầm giá trị</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.tailwindcss.com?v=1.1"></script>
     <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
@@ -16,11 +16,98 @@
         /* Custom CSS for finer control and overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background: url('media/bg-cube.png') repeat center center;
-            background-size: cover;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #f1f5f9 50%, #e2e8f0 75%, #cbd5e1 100%);
+            background-attachment: fixed;
+            position: relative;
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Modern background pattern overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 25% 25%, rgba(193, 0, 59, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(193, 0, 59, 0.03) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 48%, rgba(193, 0, 59, 0.02) 50%, transparent 52%);
+            background-size: 100px 100px, 150px 150px, 20px 20px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Subtle grid pattern for modern look */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(193, 0, 59, 0.01) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(193, 0, 59, 0.01) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+            animation: gridMove 20s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        /* Floating particles effect */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(193, 0, 59, 0.1);
+            border-radius: 50%;
+            animation: float-particle 15s infinite linear;
+        }
+
+        .particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { left: 20%; animation-delay: 2s; }
+        .particle:nth-child(3) { left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { left: 40%; animation-delay: 6s; }
+        .particle:nth-child(5) { left: 50%; animation-delay: 8s; }
+        .particle:nth-child(6) { left: 60%; animation-delay: 10s; }
+        .particle:nth-child(7) { left: 70%; animation-delay: 12s; }
+        .particle:nth-child(8) { left: 80%; animation-delay: 14s; }
+
+        @keyframes float-particle {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
 
         /* Custom scrollbar for a sleeker look */
@@ -186,8 +273,20 @@
 </head>
 <body class="antialiased">
 
+    <!-- Floating Particles Background -->
+    <div class="floating-particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
     <!-- Header -->
-    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl">
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl border-b border-white/20">
         <div class="container mx-auto flex flex-col md:space-y-0 md:flex-col">
             <!-- Header Top (logo lớn, info) -->
             <div class="header-top hidden md:flex justify-between items-center py-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
@@ -293,7 +392,7 @@
     </section>
 
     <!-- About Us Section (New section as per nav) -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="about">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="about">
         <div class="container mx-auto max-w-7xl text-center">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8" data-aos="zoom-in">
                 Về <span class="text-red-600">Chúng tôi</span>
@@ -306,7 +405,7 @@
     </section>
 
     <!-- Ecosystem Section - Reverted to non-collapsible -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="ecosystem">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="ecosystem">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
                 Hệ sinh thái <span class="text-red-600">Khet</span>
@@ -365,7 +464,7 @@
     </section>
 
     <!-- Achievements Section - Reverted to non-collapsible -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="achievements">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="achievements">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
                 Những <span class="text-red-600">Thành tích</span> nổi bật
@@ -404,7 +503,7 @@
     </section>
 
     <!-- Partners Section - Reverted to non-collapsible -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="partners">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="partners">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
                 Đối tác <span class="text-red-600">Chiến lược</span> của chúng tôi
@@ -420,7 +519,7 @@
     </section>
 
     <!-- Team Section - Reverted to non-collapsible -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="team">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="team">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
                 Đội ngũ <span class="text-red-600">Lãnh đạo</span>
@@ -455,7 +554,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="contact">
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="contact">
         <div class="container mx-auto max-w-7xl">
             <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
                 Liên hệ với <span class="text-red-600">chúng tôi</span>
