@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOLI Group - Nâng tầm giá trị</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- AOS for scroll animations -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <style>
+        /* Custom CSS for finer control and overrides */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Lighter background */
+            color: #333;
+            line-height: 1.6;
+            scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+        }
+
+        /* Custom scrollbar for a sleeker look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1003b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a00030;
+        }
+
+        /* Hero section specific styling for background image and overlay */
+        .hero-section {
+            background-color: #1a1a1a; /* Dark background color from screenshot */
+            position: relative;
+            overflow: hidden; /* Ensure content doesn't overflow */
+        }
+
+        .hero-content-area {
+            position: relative;
+            z-index: 10; /* Ensure text and image are above background elements */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+            padding: 0 2rem; /* Add some padding */
+        }
+
+        .hero-text-container {
+            max-width: 50%; /* Adjust width for text content */
+            color: white;
+            padding-right: 2rem; /* Space between text and image */
+        }
+
+        .hero-image-container {
+            position: relative; /* For positioning icons relative to image */
+            width: 50%; /* Adjust width for image content */
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; /* Align image to bottom */
+            height: 100%; /* Take full height of hero section */
+        }
+
+        .hero-main-image {
+            max-height: 90%; /* Adjust height of the main image */
+            object-fit: contain; /* Ensure image fits without cropping */
+        }
+
+        /* Styles for small floating icons */
+        .floating-icon {
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            padding: 0.75rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            backdrop-filter: blur(5px);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .floating-icon.icon-1 { top: 15%; left: 10%; animation-delay: 0s; }
+        .floating-icon.icon-2 { top: 40%; left: 5%; animation-delay: 0.5s; }
+        .floating-icon.icon-3 { top: 20%; right: 10%; animation-delay: 1s; }
+        .floating-icon.icon-4 { bottom: 20%; right: 5%; animation-delay: 1.5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        /* Custom styling for stats to ensure consistent height */
+        .stats-card {
+            min-height: 180px; /* Ensure cards have a minimum height */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Ensure images scale correctly within their containers */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* General section padding */
+        .section-padding {
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+        }
+
+        /* Responsive adjustments for hero section */
+        @media (max-width: 768px) {
+            .hero-content-area {
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                padding: 2rem 1rem;
+            }
+            .hero-text-container {
+                max-width: 100%;
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+            .hero-image-container {
+                width: 100%;
+                height: 50vh; /* Adjust height for mobile */
+                align-items: center;
+            }
+            .hero-main-image {
+                max-height: 80%;
+            }
+            .floating-icon {
+                display: none; /* Hide floating icons on small screens if they clutter */
+            }
+            /* Header mobile menu styles */
+            #mobile-menu {
+                display: flex;
+            }
+        }
+        #mobile-menu {
+            transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+            will-change: transform;
+            transform: translateX(100%);
+        }
+        @media (min-width: 768px) {
+            #main-header {
+                padding-bottom: 0;
+            }
+            .header-top {
+                display: flex;
+            }
+            .header-bottom {
+                margin-top: 0;
+            }
+            #main-header.shrink .header-top {
+                display: none !important;
+            }
+            #main-header.shrink .header-bottom {
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+                border-radius: 1.5rem;
+                box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+            }
+            #main-header.shrink #header-logo {
+                height: 2.5rem !important;
+                max-width: 100px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl">
+        <div class="container mx-auto flex flex-col md:space-y-0 md:flex-col">
+            <!-- Header Top (logo lớn, info) -->
+            <div class="header-top hidden md:flex justify-between items-center py-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
+                <div class="flex items-center space-x-3">
+                    <img id="header-logo" src="https://placehold.co/140x50/c1003b/ffffff?text=MOLI" alt="MOLI Group Logo" class="h-12 md:h-14 lg:h-16 transition-all duration-300 rounded-md shadow-sm">
+                    <span class="text-3xl font-extrabold text-[#c1003b] tracking-tight hidden md:inline-block">MOLI</span>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-2">
+                        <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-envelope text-[#c1003b]"></i></span>
+                        <div class="flex flex-col text-left">
+                            <span class="font-bold text-base">Mail Address</span>
+                            <span class="text-sm">hello@molinetwork.com</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-phone text-[#c1003b]"></i></span>
+                        <div class="flex flex-col text-left">
+                            <span class="font-bold text-base">Phone Number</span>
+                            <span class="text-sm">+842835350969</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Header Bottom (menu ngang, icon) -->
+            <div class="header-bottom flex justify-between items-center py-2 px-4 md:px-8 lg:px-12 bg-white rounded-full shadow-md transition-all duration-300">
+                <!-- Logo nhỏ khi shrink -->
+                <div class="flex items-center space-x-2 md:hidden">
+                    <img src="https://placehold.co/100x40/c1003b/ffffff?text=M+MOLI" alt="MOLI Group Logo" class="h-10 rounded-md shadow-sm">
+                </div>
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">ABOUT US</a>
+                    <a href="#ecosystem" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">ECOSYSTEM</a>
+                    <a href="#achievements" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">ACHIEVEMENT</a>
+                    <a href="#partners" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">PARTNERS</a>
+                    <a href="#team" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">CORE TEAM</a>
+                    <a href="#contact" class="text-gray-800 hover:text-red-600 font-semibold text-lg tracking-wide transition-colors duration-200">CONTACT US</a>
+                </nav>
+                <!-- Icon group (giả lập 2 icon như ảnh) -->
+                <div class="flex items-center space-x-4">
+                    <span class="text-2xl text-[#c1003b] bg-[#f8e9ef] rounded-lg p-2"><i class="fas fa-th"></i></span>
+                    <span class="w-px h-6 bg-gray-300 mx-2"></span>
+                    <span class="text-2xl"><img src="https://upload.wikimedia.org/wikipedia/en/a/ae/Flag_of_the_United_Kingdom.svg" alt="EN" class="w-7 h-7 rounded-full object-cover"></span>
+                </div>
+                <!-- Hamburger for mobile -->
+                <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition-all duration-200 focus:outline-none" aria-label="Open menu">
+                    <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu (hidden by default) -->
+            <div id="mobile-menu" class="fixed inset-0 bg-white/95 backdrop-blur-lg z-50 flex flex-col items-center justify-center space-y-8 text-xl font-semibold text-gray-800 transition-all duration-300 transform translate-x-full md:hidden">
+                <button id="close-mobile-menu" class="absolute top-6 right-6 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-200 transition-all duration-200" aria-label="Close menu">
+                    <svg class="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <a href="#about" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ABOUT US</a>
+                <a href="#ecosystem" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ECOSYSTEM</a>
+                <a href="#achievements" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">ACHIEVEMENT</a>
+                <a href="#partners" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">PARTNERS</a>
+                <a href="#team" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">CORE TEAM</a>
+                <a href="#contact" class="hover:text-red-600 transition-colors duration-200" onclick="closeMobileMenu()">CONTACT US</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden pt-20">
+        <div class="container mx-auto max-w-7xl h-full hero-content-area">
+            <!-- Text Content -->
+            <div class="hero-text-container" data-aos="fade-right" data-aos-delay="200">
+                <p class="text-red-500 text-lg font-semibold mb-3 flex items-center">
+                    <i class="fas fa-gem mr-2"></i> Core values on Content and Global Potential
+                </p>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 drop-shadow-lg">
+                    Xin chào các bạn chúng tôi là nhóm công ty truyền thôn Ket entertaiment 
+                </h1>
+            </div>
+
+            <!-- Image and Floating Icons Container -->
+            <div class="hero-image-container" data-aos="fade-left" data-aos-delay="400">
+                <!-- Main image of people -->
+                <img src="https://imgt.taimienphi.vn/cf/Images/ntt/2014/8/tach-nen-trong-photoshop-15.jpg" alt="MOLI Team" class="hero-main-image object-cover">
+
+                <!-- Floating Icons -->
+                <div class="floating-icon icon-1 text-2xl md:text-3xl lg:text-4xl" style="top: 15%; left: 10%;">
+                    <i class="fas fa-bullhorn"></i> <!-- Megaphone icon -->
+                </div>
+                <div class="floating-icon icon-2 text-2xl md:text-3xl lg:text-4xl" style="top: 40%; left: 5%;">
+                    <i class="fas fa-chart-bar"></i> <!-- Bar chart icon -->
+                </div>
+                <div class="floating-icon icon-3 text-2xl md:text-3xl lg:text-4xl" style="top: 20%; right: 10%;">
+                    <i class="fas fa-gem" style="color: #c1003b;"></i> <!-- Diamond icon, using MOLI red -->
+                </div>
+                <div class="floating-icon icon-4 text-2xl md:text-3xl lg:text-4xl" style="bottom: 20%; right: 5%;">
+                    <i class="fas fa-bullseye"></i> <!-- Target icon -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section (New section as per nav) -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="about">
+        <div class="container mx-auto max-w-7xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8" data-aos="zoom-in">
+                Về <span class="text-red-600">Chúng tôi</span>
+            </h2>
+            <p class="text-lg text-gray-700 max-w-3xl mx-auto" data-aos="fade-up">
+                MOLI Group là một công ty công nghệ tiên phong trong lĩnh vực nội dung số và quản lý tài năng. Chúng tôi cam kết mang lại giá trị thực sự cho người sáng tạo, giúp họ phát triển và mở rộng tầm ảnh hưởng trên toàn cầu. Với đội ngũ chuyên gia giàu kinh nghiệm và hệ sinh thái đa dạng, MOLI Group tự hào là đối tác đáng tin cậy, đồng hành cùng bạn trên con đường chinh phục thành công.
+            </p>
+            <!-- You can add more content here like mission, vision etc. -->
+        </div>
+    </section>
+
+    <!-- Ecosystem Section - Reverted to non-collapsible -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="ecosystem">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+                Hệ sinh thái <span class="text-red-600">MOLI</span>
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="col" data-aos="fade-up">
+                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-red-200 cursor-pointer">
+                        <i class="fas fa-globe text-4xl text-red-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Moli Group</h3>
+                        <p class="text-sm text-gray-600">Nền tảng tổng hợp</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-blue-200 cursor-pointer">
+                        <i class="fas fa-star text-4xl text-blue-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">MoliStar</h3>
+                        <p class="text-sm text-gray-600">Quản lý tài năng</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-green-200 cursor-pointer">
+                        <i class="fas fa-video text-4xl text-green-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Moli Studio</h3>
+                        <p class="text-sm text-gray-600">Sản xuất nội dung</p>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-purple-200 cursor-pointer">
+                        <i class="fas fa-chart-line text-4xl text-purple-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Moli TP</h3>
+                        <p class="text-sm text-gray-600">Giải pháp công nghệ</p>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="400">
+                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-yellow-200 cursor-pointer">
+                        <i class="fas fa-film text-4xl text-yellow-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Moli Films</h3>
+                        <p class="text-sm text-gray-600">Sản xuất phim ảnh</p>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="500">
+                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-pink-200 cursor-pointer">
+                        <i class="fas fa-handshake text-4xl text-pink-600 mb-3"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Moli Holdings</h3>
+                        <p class="text-sm text-gray-600">Đầu tư & Phát triển</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section - Reverted to non-collapsible -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="achievements">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+                Những <span class="text-red-600">Thành tích</span> nổi bật
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stat Card 1 -->
+                <div class="col" data-aos="fade-up">
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
+                        <span class="text-5xl font-extrabold mb-2">300+</span>
+                        <p class="text-lg font-medium opacity-90">Trang & Kênh</p>
+                    </div>
+                </div>
+                <!-- Stat Card 2 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="100">
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
+                        <span class="text-5xl font-extrabold mb-2">100+</span>
+                        <p class="text-lg font-medium opacity-90">Kênh YouTube</p>
+                    </div>
+                </div>
+                <!-- Stat Card 3 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="200">
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
+                        <span class="text-5xl font-extrabold mb-2">100+</span>
+                        <p class="text-lg font-medium opacity-90">Tài khoản TikTok</p>
+                    </div>
+                </div>
+                <!-- Stat Card 4 -->
+                <div class="col" data-aos="fade-up" data-aos-delay="300">
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
+                        <span class="text-5xl font-extrabold mb-2">200+</span>
+                        <p class="text-lg font-medium opacity-90">Sản phẩm</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section - Reverted to non-collapsible -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="partners">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+                Đối tác <span class="text-red-600">Chiến lược</span> của chúng tôi
+            </h2>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner1" alt="Yotel" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left">
+                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner2" alt="EMVN" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="100">
+                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner3" alt="Theanh28" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="200">
+                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner4" alt="VECorp" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="300">
+                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner5" alt="TrueDigital" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="400">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section - Reverted to non-collapsible -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white" id="team">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+                Đội ngũ <span class="text-red-600">Lãnh đạo</span>
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+                <!-- Team Member 1 -->
+                <div class="col text-center" data-aos="zoom-in-up">
+                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TRI+TAM" alt="Ông Trí Tâm" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl text-gray-800">Ông Trí Tâm</h3>
+                    <p class="text-sm text-gray-600">Chủ tịch HĐQT</p>
+                </div>
+                <!-- Team Member 2 -->
+                <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="100">
+                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=LY+PHAM" alt="Bà Lý Phạm" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl text-gray-800">Bà Lý Phạm</h3>
+                    <p class="text-sm text-gray-600">Phó Chủ tịch</p>
+                </div>
+                <!-- Team Member 3 -->
+                <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="200">
+                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TAI+NGUYEN" alt="Ông Tài Nguyễn" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl text-gray-800">Ông Tài Nguyễn</h3>
+                    <p class="text-sm text-gray-600">CEO</p>
+                </div>
+                <!-- Add more team members if needed, following the pattern -->
+                <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="300">
+                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=NEW+MEMBER" alt="Thành viên mới" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
+                    <h3 class="font-semibold text-xl text-gray-800">Tên Thành Viên</h3>
+                    <p class="text-sm text-gray-600">Chức vụ</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gray-100" id="contact">
+        <div class="container mx-auto max-w-7xl">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
+                Liên hệ với <span class="text-red-600">chúng tôi</span>
+            </h2>
+            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200" data-aos="fade-up">
+                <form class="space-y-4">
+                    <div>
+                        <label for="name" class="sr-only">Họ và tên</label>
+                        <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" placeholder="Họ và tên của bạn" required>
+                    </div>
+                    <div>
+                        <label for="email" class="sr-only">Email</label>
+                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" placeholder="Email của bạn" required>
+                    </div>
+                    <div>
+                        <label for="message" class="sr-only">Nội dung liên hệ</label>
+                        <textarea id="message" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" rows="6" placeholder="Nội dung liên hệ của bạn" required></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 font-bold text-lg shadow-md transform hover:scale-[1.01]">
+                        Gửi Tin Nhắn <i class="fas fa-paper-plane ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-8 text-center text-sm">
+        <div class="container mx-auto max-w-7xl px-4">
+            <p>&copy; 2025 MOLI GROUP JSC. All rights reserved.</p>
+            <div class="flex justify-center space-x-4 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-facebook-f text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-twitter text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-linkedin-in text-xl"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors duration-300"><i class="fab fa-instagram text-xl"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000, /* Animation duration */
+            once: true,    /* Whether animation should happen only once - default */
+            mirror: false, /* Whether elements should animate out while scrolling past them */
+        });
+
+        // Optional: Smooth scroll for navigation links
+        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add a subtle shadow to the header on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 100 && window.innerWidth >= 768) {
+                header.classList.add('shrink');
+            } else {
+                header.classList.remove('shrink');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMobileMenuBtn = document.getElementById('close-mobile-menu');
+        function openMobileMenu() {
+            mobileMenu.style.transform = 'translateX(0)';
+        }
+        function closeMobileMenu() {
+            mobileMenu.style.transform = 'translateX(100%)';
+        }
+        mobileMenuBtn.addEventListener('click', openMobileMenu);
+        closeMobileMenuBtn.addEventListener('click', closeMobileMenu);
+        // Close menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
+        });
+    </script>
+</body>
+</html>
