@@ -16,12 +16,11 @@
         /* Custom CSS for finer control and overrides */
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 25%, #f1f5f9 50%, #e2e8f0 75%, #cbd5e1 100%);
-            background-attachment: fixed;
-            position: relative;
+            background: #ffffff; /* Pure white background */
             color: #333;
             line-height: 1.6;
             scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+            position: relative;
         }
 
         /* Modern background pattern overlay */
@@ -33,9 +32,9 @@
             width: 100%;
             height: 100%;
             background-image: 
-                radial-gradient(circle at 25% 25%, rgba(193, 0, 59, 0.03) 0%, transparent 50%),
-                radial-gradient(circle at 75% 75%, rgba(193, 0, 59, 0.03) 0%, transparent 50%),
-                linear-gradient(45deg, transparent 48%, rgba(193, 0, 59, 0.02) 50%, transparent 52%);
+                radial-gradient(circle at 25% 25%, rgba(193, 0, 59, 0.02) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(193, 0, 59, 0.02) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 48%, rgba(193, 0, 59, 0.01) 50%, transparent 52%);
             background-size: 100px 100px, 150px 150px, 20px 20px;
             pointer-events: none;
             z-index: -1;
@@ -50,8 +49,8 @@
             width: 100%;
             height: 100%;
             background-image: 
-                linear-gradient(rgba(193, 0, 59, 0.01) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(193, 0, 59, 0.01) 1px, transparent 1px);
+                linear-gradient(rgba(193, 0, 59, 0.005) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(193, 0, 59, 0.005) 1px, transparent 1px);
             background-size: 50px 50px;
             pointer-events: none;
             z-index: -1;
@@ -79,7 +78,7 @@
             position: absolute;
             width: 4px;
             height: 4px;
-            background: rgba(193, 0, 59, 0.1);
+            background: rgba(193, 0, 59, 0.08);
             border-radius: 50%;
             animation: float-particle 15s infinite linear;
         }
@@ -128,7 +127,7 @@
 
         /* Hero section specific styling for background image and overlay */
         .hero-section {
-            background-color: #1a1a1a; /* Dark background color from screenshot */
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 50%, #ffffff 100%);
             position: relative;
             overflow: hidden; /* Ensure content doesn't overflow */
         }
@@ -145,7 +144,7 @@
 
         .hero-text-container {
             max-width: 50%; /* Adjust width for text content */
-            color: white;
+            color: #333;
             padding-right: 2rem; /* Space between text and image */
         }
 
@@ -154,26 +153,27 @@
             width: 50%; /* Adjust width for image content */
             display: flex;
             justify-content: center;
-            align-items: flex-end; /* Align image to bottom */
+            align-items: center; /* Center the image vertically */
             height: 100%; /* Take full height of hero section */
         }
 
         .hero-main-image {
-            max-height: 90%; /* Adjust height of the main image */
+            max-height: 85%; /* Slightly reduce height for better balance */
+            max-width: 90%; /* Ensure image doesn't overflow container */
             object-fit: contain; /* Ensure image fits without cropping */
         }
 
         /* Styles for small floating icons */
         .floating-icon {
             position: absolute;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(193, 0, 59, 0.1);
             border-radius: 50%;
             padding: 0.75rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: #c1003b;
+            box-shadow: 0 4px 15px rgba(193, 0, 59, 0.2);
             backdrop-filter: blur(5px);
             animation: float 3s ease-in-out infinite;
         }
@@ -264,11 +264,12 @@
             }
             .hero-image-container {
                 width: 100%;
-                height: 50vh; /* Adjust height for mobile */
+                height: 45vh; /* Reduce height for mobile */
                 align-items: center;
             }
             .hero-main-image {
-                max-height: 80%;
+                max-height: 90%;
+                max-width: 85%;
             }
             .floating-icon {
                 display: none; /* Hide floating icons on small screens if they clutter */
@@ -307,6 +308,25 @@
                 max-width: 100px;
             }
         }
+        /* Hiệu ứng chữ gradient động cho hero */
+        .animated-gradient-text {
+            font-size: 2.2rem;
+            font-weight: 900;
+            background: linear-gradient(90deg, #c1003b, #ff6a00, #c1003b 80%);
+            background-size: 200% auto;
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine-gradient 3s linear infinite;
+            text-shadow: 0 2px 16px rgba(193,0,59,0.15), 0 1px 0 #fff;
+            letter-spacing: 1px;
+            display: inline-block;
+        }
+        @keyframes shine-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -330,7 +350,7 @@
             <div class="header-top hidden md:flex justify-between items-center py-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
                 <div class="flex items-center space-x-3">
                     <img id="header-logo" src="https://placehold.co/140x50/c1003b/ffffff?text=KHET" alt="Khet Entertainment Logo" class="h-12 md:h-14 lg:h-16 transition-all duration-300 rounded-md shadow-sm">
-                    <span class="text-3xl font-extrabold text-[#c1003b] tracking-tight hidden md:inline-block">KHET</span>
+                    <span class="text-3xl font-extrabold text-[#c1003b] tracking-tight hidden md:inline-block">Entertainment </span>
                 </div>
                 <div class="flex items-center space-x-8">
                     <div class="flex items-center space-x-2">
@@ -404,15 +424,17 @@
                 <p class="text-red-500 text-lg font-semibold mb-3 flex items-center">
                     <i class="fas fa-gem mr-2"></i> Core values on Content and Global Potential
                 </p>
-                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6 drop-shadow-lg">
-                    Xin chào các bạn chúng tôi là nhóm công ty truyền thông Khet Entertainment 
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-extrabold leading-tight tracking-tight mb-6 drop-shadow-lg">
+                    <span class="text-[#c1003b]">Khet Entertainment</span> 
+                    <span class="block mt-2 animated-gradient-text">là một nền tảng truyền thông số</span>
+                    <span class="text-gray-700 font-medium block mt-2">thuộc <span class="text-[#c1003b]">INO MEDIA</span>, hướng tới giới trẻ năng động, yêu thích nghệ thuật và cập nhật xu hướng. Mục tiêu là mang lại trải nghiệm giải trí đa dạng, chất lượng cao, kết hợp giữa sáng tạo, hài hước và thông tin hữu ích.</span>
                 </h1>
             </div>
 
             <!-- Image and Floating Icons Container -->
             <div class="hero-image-container" data-aos="fade-left" data-aos-delay="400">
                 <!-- Main image of people -->
-                <img src="media/peoplehome" alt="Khet Entertainment Team" class="hero-main-image object-cover">
+                <img src="media/43.png" alt="Khet Entertainment Team" class="hero-main-image object-cover">
 
                 <!-- Floating Icons -->
                 <div class="floating-icon icon-1 text-2xl md:text-3xl lg:text-4xl" style="top: 15%; left: 10%;">
@@ -433,14 +455,62 @@
 
     <!-- About Us Section (New section as per nav) -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="about">
-        <div class="container mx-auto max-w-7xl text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-8" data-aos="zoom-in">
-                Về <span class="text-red-600">Chúng tôi</span>
-            </h2>
-            <p class="text-lg text-gray-700 max-w-3xl mx-auto" data-aos="fade-up">
-                Khet Entertainment là một công ty công nghệ tiên phong trong lĩnh vực nội dung số và quản lý tài năng. Chúng tôi cam kết mang lại giá trị thực sự cho người sáng tạo, giúp họ phát triển và mở rộng tầm ảnh hưởng trên toàn cầu. Với đội ngũ chuyên gia giàu kinh nghiệm và hệ sinh thái đa dạng, Khet Entertainment tự hào là đối tác đáng tin cậy, đồng hành cùng bạn trên con đường chinh phục thành công.
-            </p>
-            <!-- You can add more content here like mission, vision etc. -->
+        <div class="container mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-12">
+            <!-- Hình minh họa nghệ thuật trẻ trung -->
+            <div class="flex-1 flex justify-center mb-8 md:mb-0" data-aos="fade-right">
+                <div class="relative w-80 h-80 md:w-96 md:h-96 rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#fff] to-[#f8e9ef] flex items-center justify-center">
+                    <img src="media/IMG_20250605224236937.png" alt="Khet Illustration" class="w-72 h-72 md:w-88 md:h-88 object-cover rounded-2xl shadow-lg opacity-90">
+                    <!-- Hiệu ứng bóng mờ -->
+                    <div class="absolute -top-8 -right-8 w-24 h-24 bg-[#c1003b]/10 rounded-full blur-2xl"></div>
+                    <div class="absolute -bottom-8 -left-8 w-20 h-20 bg-[#c1003b]/20 rounded-full blur-2xl"></div>
+                </div>
+            </div>
+            
+            <!-- Nội dung giới thiệu -->
+            <div class="flex-1" data-aos="fade-left">
+                <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 flex items-center gap-3">
+                    <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-bolt"></i></span>
+                    Giới thiệu <span class="text-[#c1003b]">chung</span>
+                </h2>
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 md:p-8 border border-[#c1003b]/10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                        <div>
+                            <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-film"></i> Lĩnh vực hoạt động</h3>
+                            <ul class="list-disc list-inside text-gray-600 text-base pl-2">
+                                <li>Phim ảnh, Âm nhạc, Giới trẻ, Showbiz</li>
+                                <li>Thương hiệu, Đời sống, Ngôi sao</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-calendar-alt"></i> Thời gian hoạt động</h3>
+                            <ul class="list-disc list-inside text-gray-600 text-base pl-2">
+                                <li>Hoạt động trở lại từ tháng 2/2025</li>
+                                <li>Đang phát triển hệ thống kênh & fanpage về âm nhạc, showbiz</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-share-alt"></i> Nền tảng xã hội</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-base pl-2">
+                            <li>Page chính: <b>Khet Entertainment</b></li>
+                            <li>Kênh chính: <b>Khet News</b> (~100.000 lượt theo dõi)</li>
+                            <li>10 kênh TikTok (lớn nhất: Tin Tức Showbiz ~800.000 lượt theo dõi)</li>
+                            <li>Page Facebook, TikTok, YouTube</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-[#c1003b] mb-1 flex items-center gap-2"><i class="fas fa-newspaper"></i> Nội dung đăng tải</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-base pl-2">
+                            <li>Tin tức nghệ sĩ Việt, chương trình thực tế, sản phẩm âm nhạc, phim ảnh</li>
+                            <li>Campaign truyền thông, tác nghiệp họp báo, sự kiện, tin hot trong ngày</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mt-4 text-base text-gray-600 flex flex-col gap-1">
+                    <span><b>Liên hệ quảng cáo:</b> <a href="tel:0899864943" class="text-[#c1003b] font-semibold hover:underline">0899 864 943 (Mr. Khánh)</a></span>
+                    <span class="text-xs text-gray-400">@BY INO MEDIA – KHET ENTERTAINMENT</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -471,56 +541,36 @@
     <!-- Ecosystem Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="ecosystem">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
-                Hệ sinh thái <span class="text-red-600">Khet</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-layer-group"></i></span>
+                Các kênh <span class="text-[#c1003b]">nổi bật</span>
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
+                <!-- Card 1: Khet News -->
                 <div class="col" data-aos="fade-up">
-                    <div class="bg-gradient-to-br from-red-50 to-red-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-red-200 cursor-pointer">
-                        <i class="fas fa-globe text-4xl text-red-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Khet Group</h3>
-                        <p class="text-sm text-gray-600">Nền tảng tổng hợp</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-3xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-newspaper"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet News</h3>
+                        <p class="text-base text-gray-600 mb-2 text-center">Kênh tin tức & giải trí: sự kiện, phim ảnh, beauty queen, âm nhạc.</p>
+                        <div class="flex items-center gap-2 text-[#c1003b] font-semibold text-lg mt-2"><i class="fas fa-users"></i> ~100.000 theo dõi</div>
                     </div>
                 </div>
-                <!-- Card 2 -->
+                <!-- Card 2: Khet Music -->
                 <div class="col" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-blue-200 cursor-pointer">
-                        <i class="fas fa-star text-4xl text-blue-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">KhetStar</h3>
-                        <p class="text-sm text-gray-600">Quản lý tài năng</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-3xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-music"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Khet Music</h3>
+                        <p class="text-base text-gray-600 mb-2 text-center">Kênh nhạc số trending: KPOP, USUK, Vbiz, không voice, sự kiện âm nhạc.</p>
+                        <div class="flex items-center gap-2 text-[#c1003b] font-semibold text-lg mt-2"><i class="fab fa-tiktok"></i> 10 kênh TikTok (lớn nhất ~800.000 theo dõi)</div>
                     </div>
                 </div>
-                <!-- Card 3 -->
+                <!-- Card 3: Sô Bồ Sô Bích -->
                 <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-br from-green-50 to-green-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-green-200 cursor-pointer">
-                        <i class="fas fa-video text-4xl text-green-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Khet Studio</h3>
-                        <p class="text-sm text-gray-600">Sản xuất nội dung</p>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-purple-200 cursor-pointer">
-                        <i class="fas fa-chart-line text-4xl text-purple-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Khet TP</h3>
-                        <p class="text-sm text-gray-600">Giải pháp công nghệ</p>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="400">
-                    <div class="bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-yellow-200 cursor-pointer">
-                        <i class="fas fa-film text-4xl text-yellow-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Khet Films</h3>
-                        <p class="text-sm text-gray-600">Sản xuất phim ảnh</p>
-                    </div>
-                </div>
-                <!-- Card 6 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="500">
-                    <div class="bg-gradient-to-br from-pink-50 to-pink-100 rounded-xl shadow-lg p-6 flex flex-col items-center justify-center h-40 transform hover:scale-105 transition-all duration-300 border border-pink-200 cursor-pointer">
-                        <i class="fas fa-handshake text-4xl text-pink-600 mb-3"></i>
-                        <h3 class="text-xl font-semibold text-gray-800">Khet Holdings</h3>
-                        <p class="text-sm text-gray-600">Đầu tư & Phát triển</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center justify-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-16 h-16 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-3xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-star"></i></div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-2">Sô Bồ Sô Bích</h3>
+                        <p class="text-base text-gray-600 mb-2 text-center">Kênh giải trí showbiz: tin tức, sự kiện, phim ảnh, không voice.</p>
+                        <div class="flex items-center gap-2 text-[#c1003b] font-semibold text-lg mt-2"><i class="fas fa-bolt"></i> Nội dung trending</div>
                     </div>
                 </div>
             </div>
@@ -530,38 +580,67 @@
     <!-- Achievements Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="achievements">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
-                Những <span class="text-red-600">Thành tích</span> nổi bật
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-rocket"></i></span>
+                Hoạt động & <span class="text-[#c1003b]">Kế hoạch</span>
             </h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Stat Card 1 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1: Truyền thông phim ảnh & âm nhạc -->
                 <div class="col" data-aos="fade-up">
-                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
-                        <span class="text-5xl font-extrabold mb-2">300+</span>
-                        <p class="text-lg font-medium opacity-90">Trang & Kênh</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-2xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-film"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Truyền thông phim ảnh & âm nhạc</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-base text-left pl-2">
+                            <li>Phim chiếu rạp, YouTube</li>
+                            <li>Album, nhạc OST, sự kiện âm nhạc, họp báo</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Stat Card 2 -->
+                <!-- Card 2: Quản lý nghệ sĩ nổi bật -->
                 <div class="col" data-aos="fade-up" data-aos-delay="100">
-                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
-                        <span class="text-5xl font-extrabold mb-2">100+</span>
-                        <p class="text-lg font-medium opacity-90">Kênh YouTube</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-2xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-user-tie"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Quản lý nghệ sĩ</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-base text-left pl-2">
+                            <li>GREEND – chủ nhân bản hit <b>Nụ cười em là nắng</b></li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Stat Card 3 -->
+                <!-- Card 3: Đối tác & dự án truyền thông -->
                 <div class="col" data-aos="fade-up" data-aos-delay="200">
-                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
-                        <span class="text-5xl font-extrabold mb-2">100+</span>
-                        <p class="text-lg font-medium opacity-90">Tài khoản TikTok</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-8 flex flex-col items-center h-full border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                        <div class="w-14 h-14 flex items-center justify-center rounded-full bg-[#c1003b]/10 mb-4 text-2xl text-[#c1003b] group-hover:bg-[#c1003b]/20 transition"><i class="fas fa-handshake"></i></div>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 text-center">Đối tác & dự án truyền thông</h3>
+                        <ul class="list-disc list-inside text-gray-600 text-base text-left pl-2">
+                            <li>Truyền thông cho phim ảnh, âm nhạc, campaign nhãn hàng</li>
+                            <li>Tác nghiệp họp báo, sự kiện lớn</li>
+                        </ul>
                     </div>
                 </div>
-                <!-- Stat Card 4 -->
-                <div class="col" data-aos="fade-up" data-aos-delay="300">
-                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white p-8 rounded-xl shadow-lg stats-card transform hover:scale-105 transition-all duration-300">
-                        <span class="text-5xl font-extrabold mb-2">200+</span>
-                        <p class="text-lg font-medium opacity-90">Sản phẩm</p>
-                    </div>
-                </div>
+            </div>
+            <!-- Timeline kế hoạch phát triển -->
+            <div class="mt-12 max-w-3xl mx-auto">
+                <h4 class="text-lg font-bold text-[#c1003b] mb-4 flex items-center gap-2"><i class="fas fa-calendar-alt"></i> Kế hoạch phát triển</h4>
+                <ol class="relative border-l-4 border-[#c1003b]/20 pl-8">
+                    <li class="mb-8">
+                        <span class="absolute -left-5 top-1 w-8 h-8 bg-[#c1003b]/10 rounded-full flex items-center justify-center text-[#c1003b] text-lg"><i class="fas fa-bolt"></i></span>
+                        <div class="bg-white/80 rounded-xl shadow p-4">
+                            <b>Tháng 2/2025:</b> Khet hoạt động trở lại, phát triển hệ thống kênh & fanpage xu hướng âm nhạc, showbiz.
+                        </div>
+                    </li>
+                    <li class="mb-8">
+                        <span class="absolute -left-5 top-1 w-8 h-8 bg-[#c1003b]/10 rounded-full flex items-center justify-center text-[#c1003b] text-lg"><i class="fas fa-users"></i></span>
+                        <div class="bg-white/80 rounded-xl shadow p-4">
+                            <b>2025:</b> Đẩy mạnh nội dung đa nền tảng, mở rộng hợp tác nghệ sĩ, nhãn hàng, sự kiện lớn.
+                        </div>
+                    </li>
+                    <li>
+                        <span class="absolute -left-5 top-1 w-8 h-8 bg-[#c1003b]/10 rounded-full flex items-center justify-center text-[#c1003b] text-lg"><i class="fas fa-chart-line"></i></span>
+                        <div class="bg-white/80 rounded-xl shadow p-4">
+                            <b>Tương lai:</b> Trở thành nền tảng truyền thông số hàng đầu cho giới trẻ, nghệ thuật, giải trí tại Việt Nam.
+                        </div>
+                    </li>
+                </ol>
             </div>
         </div>
     </section>
@@ -569,15 +648,31 @@
     <!-- Partners Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="partners">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
-                Đối tác <span class="text-red-600">Chiến lược</span> của chúng tôi
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-handshake"></i></span>
+                Đối tác <span class="text-[#c1003b]">Chiến lược</span> của chúng tôi
             </h2>
             <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
-                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner1" alt="Yotel" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left">
-                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner2" alt="EMVN" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="100">
-                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner3" alt="Theanh28" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="200">
-                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner4" alt="VECorp" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="300">
-                <img src="https://placehold.co/150x80/cccccc/333333?text=Partner5" alt="TrueDigital" class="max-h-16 md:max-h-20 grayscale hover:grayscale-0 transition-all duration-300 transform hover:scale-110" data-aos="flip-left" data-aos-delay="400">
+                <!-- Partner Card 1 -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner1" alt="Yotel" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+                </div>
+                <!-- Partner Card 2 -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner2" alt="EMVN" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+                </div>
+                <!-- Partner Card 3 -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner3" alt="Theanh28" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+                </div>
+                <!-- Partner Card 4 -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner4" alt="VECorp" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+                </div>
+                <!-- Partner Card 5 -->
+                <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 flex items-center justify-center border border-[#c1003b]/10 hover:scale-105 transition-all duration-300 group">
+                    <img src="https://placehold.co/150x80/cccccc/333333?text=Partner5" alt="TrueDigital" class="h-16 w-32 object-contain rounded-full grayscale group-hover:grayscale-0 group-hover:shadow-lg transition-all duration-300">
+                </div>
             </div>
         </div>
     </section>
@@ -585,33 +680,50 @@
     <!-- Team Section - Reverted to non-collapsible -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-white/80 backdrop-blur-sm" id="team">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
-                Đội ngũ <span class="text-red-600">Lãnh đạo</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-users"></i></span>
+                Đội ngũ <span class="text-[#c1003b]">Lãnh đạo</span>
             </h2>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
                 <!-- Team Member 1 -->
                 <div class="col text-center" data-aos="zoom-in-up">
-                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TRI+TAM" alt="Ông Trí Tâm" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="font-semibold text-xl text-gray-800">Ông Trí Tâm</h3>
-                    <p class="text-sm text-gray-600">Chủ tịch HĐQT</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border-2 border-transparent hover:border-[#c1003b] transition-all duration-300 group flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full border-4 border-gradient-to-br from-[#c1003b] to-[#f8e9ef] shadow-lg mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TRI+TAM" alt="Ông Trí Tâm" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-xl text-gray-800 group-hover:text-[#c1003b] transition">Ông Trí Tâm</h3>
+                        <p class="text-sm text-gray-600">Chủ tịch HĐQT</p>
+                    </div>
                 </div>
                 <!-- Team Member 2 -->
                 <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="100">
-                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=LY+PHAM" alt="Bà Lý Phạm" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="font-semibold text-xl text-gray-800">Bà Lý Phạm</h3>
-                    <p class="text-sm text-gray-600">Phó Chủ tịch</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border-2 border-transparent hover:border-[#c1003b] transition-all duration-300 group flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full border-4 border-gradient-to-br from-[#c1003b] to-[#f8e9ef] shadow-lg mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=LY+PHAM" alt="Bà Lý Phạm" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-xl text-gray-800 group-hover:text-[#c1003b] transition">Bà Lý Phạm</h3>
+                        <p class="text-sm text-gray-600">Phó Chủ tịch</p>
+                    </div>
                 </div>
                 <!-- Team Member 3 -->
                 <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="200">
-                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TAI+NGUYEN" alt="Ông Tài Nguyễn" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="font-semibold text-xl text-gray-800">Ông Tài Nguyễn</h3>
-                    <p class="text-sm text-gray-600">CEO</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border-2 border-transparent hover:border-[#c1003b] transition-all duration-300 group flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full border-4 border-gradient-to-br from-[#c1003b] to-[#f8e9ef] shadow-lg mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=TAI+NGUYEN" alt="Ông Tài Nguyễn" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-xl text-gray-800 group-hover:text-[#c1003b] transition">Ông Tài Nguyễn</h3>
+                        <p class="text-sm text-gray-600">CEO</p>
+                    </div>
                 </div>
-                <!-- Add more team members if needed, following the pattern -->
+                <!-- Team Member 4 -->
                 <div class="col text-center" data-aos="zoom-in-up" data-aos-delay="300">
-                    <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=NEW+MEMBER" alt="Thành viên mới" class="w-32 h-32 rounded-full object-cover border-4 border-red-500 shadow-md mb-4 mx-auto transform hover:scale-105 transition-transform duration-300">
-                    <h3 class="font-semibold text-xl text-gray-800">Tên Thành Viên</h3>
-                    <p class="text-sm text-gray-600">Chức vụ</p>
+                    <div class="bg-white/70 backdrop-blur-lg rounded-2xl shadow-xl p-6 border-2 border-transparent hover:border-[#c1003b] transition-all duration-300 group flex flex-col items-center">
+                        <div class="w-32 h-32 rounded-full border-4 border-gradient-to-br from-[#c1003b] to-[#f8e9ef] shadow-lg mb-4 overflow-hidden flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                            <img src="https://placehold.co/128x128/1a1a1a/ffffff?text=NEW+MEMBER" alt="Thành viên mới" class="w-full h-full object-cover">
+                        </div>
+                        <h3 class="font-semibold text-xl text-gray-800 group-hover:text-[#c1003b] transition">Tên Thành Viên</h3>
+                        <p class="text-sm text-gray-600">Chức vụ</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -620,25 +732,33 @@
     <!-- Contact Section -->
     <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="contact">
         <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12" data-aos="zoom-in">
-                Liên hệ với <span class="text-red-600">chúng tôi</span>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
+                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-envelope"></i></span>
+                Liên hệ với <span class="text-[#c1003b]">chúng tôi</span>
             </h2>
-            <div class="max-w-xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-gray-200" data-aos="fade-up">
-                <form class="space-y-4">
-                    <div>
-                        <label for="name" class="sr-only">Họ và tên</label>
-                        <input type="text" id="name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" placeholder="Họ và tên của bạn" required>
+            <div class="max-w-xl mx-auto mb-6 text-center">
+                <div class="inline-flex items-center gap-3 bg-white/70 backdrop-blur-lg rounded-xl shadow p-4 border border-[#c1003b]/10">
+                    <span class="text-[#c1003b] text-2xl"><i class="fas fa-bullhorn"></i></span>
+                    <span class="font-semibold text-gray-700">Liên hệ quảng cáo:</span>
+                    <a href="tel:0899864943" class="text-[#c1003b] font-bold hover:underline">0899 864 943 (Mr. Khánh)</a>
+                </div>
+            </div>
+            <div class="max-w-xl mx-auto bg-white/70 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-[#c1003b]/10" data-aos="fade-up">
+                <form class="space-y-5">
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c1003b] text-lg"><i class="fas fa-user"></i></span>
+                        <input type="text" id="name" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Họ và tên của bạn" required>
                     </div>
-                    <div>
-                        <label for="email" class="sr-only">Email</label>
-                        <input type="email" id="email" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" placeholder="Email của bạn" required>
+                    <div class="relative">
+                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c1003b] text-lg"><i class="fas fa-envelope"></i></span>
+                        <input type="email" id="email" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Email của bạn" required>
                     </div>
-                    <div>
-                        <label for="message" class="sr-only">Nội dung liên hệ</label>
-                        <textarea id="message" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200" rows="6" placeholder="Nội dung liên hệ của bạn" required></textarea>
+                    <div class="relative">
+                        <span class="absolute left-3 top-4 text-[#c1003b] text-lg"><i class="fas fa-comment-dots"></i></span>
+                        <textarea id="message" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" rows="6" placeholder="Nội dung liên hệ của bạn" required></textarea>
                     </div>
-                    <button type="submit" class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 font-bold text-lg shadow-md transform hover:scale-[1.01]">
-                        Gửi Tin Nhắn <i class="fas fa-paper-plane ml-2"></i>
+                    <button type="submit" class="w-full bg-[#c1003b] text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 font-bold text-lg shadow-md transform hover:scale-[1.01] flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
                     </button>
                 </form>
             </div>
