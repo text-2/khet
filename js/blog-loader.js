@@ -116,7 +116,7 @@ class BlogLoader {
         }
 
         const postsHTML = posts.map((post, index) => `
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300" data-aos="fade-up" data-aos-delay="${index * 100}">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer blog-post-card" data-aos="fade-up" data-aos-delay="${index * 100}" data-post-url="${this.getPostUrl(post.filename)}">
                 ${post.thumbnail ? `
                 <div class="relative h-48 overflow-hidden">
                     <img src="${post.thumbnail}" alt="${post.title}" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
@@ -152,6 +152,9 @@ class BlogLoader {
         if (typeof AOS !== 'undefined') {
             AOS.refresh();
         }
+        
+        // Add click handlers for blog post cards
+        this.addClickHandlers();
     }
 
     formatDate(dateString) {
@@ -163,12 +166,45 @@ class BlogLoader {
         });
     }
 
+    getPostUrl(filename) {
+        // Tạo URL cho bài viết dựa trên filename
+        return `post/${filename}`;
+    }
+
+    addClickHandlers() {
+        // Thêm event listener cho các card bài viết
+        const postCards = document.querySelectorAll('.blog-post-card');
+        postCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                // Không chuyển hướng nếu click vào link "Đọc thêm"
+                if (e.target.closest('.read-more-link')) {
+                    return;
+                }
+                
+                const postUrl = card.getAttribute('data-post-url');
+                if (postUrl) {
+                    // Thêm hiệu ứng loading
+                    card.style.transform = 'scale(0.98)';
+                    card.style.opacity = '0.8';
+                    
+                    // Mở bài viết trong tab mới
+                    setTimeout(() => {
+                        window.open(postUrl, '_blank');
+                        // Khôi phục trạng thái card
+                        card.style.transform = '';
+                        card.style.opacity = '';
+                    }, 150);
+                }
+            });
+        });
+    }
+
     showFallbackPosts() {
         if (!this.blogContainer) return;
         
         // Hiển thị bài đăng mặc định nếu không load được từ API
         this.blogContainer.innerHTML = `
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300" data-aos="fade-up">
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden transform hover:scale-105 transition-all duration-300 cursor-pointer blog-post-card" data-aos="fade-up" data-post-url="post/bai-viet-1.html">
                 <div class="relative h-48 overflow-hidden">
                     <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=400&fit=crop" alt="Khet Entertainment Team" class="w-full h-full object-cover transition-transform duration-300 hover:scale-110">
                     <div class="absolute top-4 left-4">
@@ -188,6 +224,9 @@ class BlogLoader {
                 </div>
             </div>
         `;
+        
+        // Add click handlers for fallback post
+        this.addClickHandlers();
     }
 }
 
