@@ -4,13 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khet Entertainment</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com?v=1.1"></script>
-    <!-- Google Fonts: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- AOS for scroll animations -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
     <style>
         /* Custom CSS for finer control and overrides */
@@ -419,7 +415,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Floating Particles Background -->
     <div class="floating-particles">
         <div class="particle"></div>
         <div class="particle"></div>
@@ -431,10 +426,8 @@
         <div class="particle"></div>
     </div>
 
-    <!-- Header -->
     <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl border-b border-white/20">
         <div class="container mx-auto flex flex-col md:space-y-0 md:flex-col">
-            <!-- Header Top (logo lớn, info) -->
             <div class="header-top hidden md:flex justify-between items-center py-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
                 <div class="flex items-center space-x-3">
                     <img id="header-logo" src="https://placehold.co/140x50/c1003b/ffffff?text=KHET" alt="Khet Entertainment Logo" class="h-12 md:h-14 lg:h-16 transition-all duration-300 rounded-md shadow-sm">
@@ -457,13 +450,10 @@
                     </div>
                 </div>
             </div>
-            <!-- Header Bottom (menu ngang, icon) -->
             <div class="header-bottom flex flex-row items-center justify-between py-2 px-2 sm:px-4 md:px-8 lg:px-12 bg-white rounded-full shadow-md transition-all duration-300 gap-2 sm:gap-4 md:gap-8">
-                <!-- Logo trái -->
                 <div class="flex items-center">
                     <img src="https://placehold.co/100x40/c1003b/ffffff?text=K+KHET" alt="Khet Entertainment Logo" class="h-8 sm:h-10 md:h-12 rounded-md shadow-sm transition-all duration-300">
                 </div>
-                <!-- Menu giữa -->
                 <nav class="flex-1 flex justify-center overflow-x-auto whitespace-nowrap gap-x-2 sm:gap-x-4 md:gap-x-8">
                     <a href="#about" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">Giới Thiệu</a>
                     <a href="#blog" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">BÀI ĐĂNG</a>
@@ -473,7 +463,6 @@
                     <a href="#team" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">THÀNH VIÊN</a>
                     <a href="#contact" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">LIÊN HỆ</a>
                 </nav>
-                <!-- Nhóm nút và icon phải -->
                 <div class="flex items-center gap-1 sm:gap-2 md:gap-4">
                     <a href="https://www.facebook.com/khetentertainment" class="inline-flex items-center gap-1 sm:gap-2 bg-[#c1003b] text-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg font-semibold text-xs sm:text-sm md:text-base hover:bg-[#a00030] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                         <span class="hidden sm:inline">Fanpage</span>
@@ -491,10 +480,8 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden pt-20">
         <div class="container mx-auto max-w-7xl h-full hero-content-area">
-            <!-- Text Content -->
             <div class="hero-text-container" data-aos="fade-right" data-aos-delay="200">
                 <p class="text-red-500 text-lg font-semibold mb-3 flex items-center animate-pulse">
                     <i class="fas fa-gem mr-2"></i> Khet Entertainment
@@ -524,7 +511,6 @@
                         </span>
                     </span>
                 </h1>
-                <!-- Call to Action Buttons -->
                 <div class="flex flex-wrap gap-4 mt-8">
                     <a href="#about"
                        class="inline-flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-lg shadow-lg transition-all duration-300
@@ -543,23 +529,20 @@
                 </div>
             </div>
 
-            <!-- Image and Floating Icons Container -->
             <div class="hero-image-container" data-aos="fade-left" data-aos-delay="400">
-                <!-- Main image of people -->
                 <img src="media/43.png" alt="Khet Entertainment Team" class="hero-main-image object-cover">
 
-                <!-- Floating Icons -->
                 <div class="floating-icon icon-1 text-2xl md:text-3xl lg:text-4xl" style="top: 15%; left: 10%;">
-                    <i class="fas fa-bullhorn"></i> <!-- Megaphone icon -->
+                    <i class="fas fa-bullhorn"></i>
                 </div>
                 <div class="floating-icon icon-2 text-2xl md:text-3xl lg:text-4xl" style="top: 40%; left: 5%;">
-                    <i class="fas fa-chart-bar"></i> <!-- Bar chart icon -->
+                    <i class="fas fa-chart-bar"></i>
                 </div>
                 <div class="floating-icon icon-3 text-2xl md:text-3xl lg:text-4xl" style="top: 20%; right: 10%;">
-                    <i class="fas fa-gem" style="color: #c1003b;"></i> <!-- Diamond icon, using Khet red -->
+                    <i class="fas fa-gem" style="color: #c1003b;"></i>
                 </div>
                 <div class="floating-icon icon-4 text-2xl md:text-3xl lg:text-4xl" style="bottom: 20%; right: 5%;">
-                    <i class="fas fa-bullseye"></i> <!-- Target icon -->
+                    <i class="fas fa-bullseye"></i>
                 </div>
             </div>
         </div>
