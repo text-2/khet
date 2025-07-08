@@ -1245,38 +1245,25 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm" id="contact">
-        <div class="container mx-auto max-w-7xl">
-            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-12 flex items-center justify-center gap-3" data-aos="zoom-in">
-                <span class="inline-block bg-[#c1003b]/10 text-[#c1003b] p-2 rounded-full"><i class="fas fa-envelope"></i></span>
-                Liên hệ với <span class="text-[#c1003b]">Khet Entertainment</span>
-            </h2>
-            <div class="max-w-xl mx-auto mb-6 text-center">
-                <div class="inline-flex items-center gap-3 bg-white/70 backdrop-blur-lg rounded-xl shadow p-4 border border-[#c1003b]/10">
-                    <span class="text-[#c1003b] text-2xl"><i class="fas fa-bullhorn"></i></span>
-                    <span class="font-semibold text-gray-700">Liên hệ quảng cáo:</span>
-                    <a href="tel:0899864943" class="text-[#c1003b] font-bold hover:underline">0899 864 943 (Mr. Khánh)</a>
-                </div>
-            </div>
-            <div class="max-w-xl mx-auto bg-white/70 backdrop-blur-lg p-8 rounded-2xl shadow-xl border border-[#c1003b]/10" data-aos="fade-up">
-                <form class="space-y-5">
-                    <div class="relative">
-                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c1003b] text-lg"><i class="fas fa-user"></i></span>
-                        <input type="text" id="name" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Họ và tên của bạn" required>
+    <!-- FormSubmit Contact Method (NEW) -->
+    <section class="section-padding px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-white/90 to-gray-50/90 backdrop-blur-sm">
+        <div class="container mx-auto max-w-2xl">
+            <div class="bg-white/80 backdrop-blur-lg rounded-2xl p-8 shadow-xl border border-[#c1003b]/10 mb-8">
+                <h3 class="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <span class="text-[#c1003b]"><i class="fas fa-paper-plane"></i></span>
+                    Gửi mail đến với chúng tôi 
+                </h3>
+                <form target="_blank" action="https://formsubmit.co/congtywebne@gmail.com" method="POST" class="space-y-5">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <input type="text" name="name" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Họ và tên" required>
+                        <input type="email" name="email" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Email" required>
                     </div>
-                    <div class="relative">
-                        <span class="absolute left-3 top-1/2 -translate-y-1/2 text-[#c1003b] text-lg"><i class="fas fa-envelope"></i></span>
-                        <input type="email" id="email" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" placeholder="Email của bạn" required>
-                    </div>
-                    <div class="relative">
-                        <span class="absolute left-3 top-4 text-[#c1003b] text-lg"><i class="fas fa-comment-dots"></i></span>
-                        <textarea id="message" class="w-full p-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" rows="6" placeholder="Nội dung liên hệ của bạn" required></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-[#c1003b] text-white py-3 rounded-lg hover:bg-red-700 transition-colors duration-300 font-bold text-lg shadow-md transform hover:scale-[1.01] flex items-center justify-center gap-2">
-                        <i class="fas fa-paper-plane"></i> Gửi Tin Nhắn
+                    <textarea placeholder="Nội dung liên hệ" class="form-control w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 outline-none transition-all duration-200 bg-white/80" name="message" rows="6" required></textarea>
+                    <button type="submit" class="w-full bg-gray-900 text-white py-3 rounded-lg hover:bg-[#c1003b] transition-colors duration-300 font-bold text-lg shadow-md flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Gửi qua FormSubmit
                     </button>
                 </form>
+                <p class="text-xs text-gray-400 mt-4">* Thay <b>your@email.com</b> bằng email của bạn để nhận liên hệ.</p>
             </div>
         </div>
     </section>
