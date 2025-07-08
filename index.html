@@ -552,47 +552,6 @@
                 max-width: 80px !important;
             }
         }
-        @media (max-width: 767px) {
-            .header-bottom {
-                border-radius: 0 0 1.2rem 1.2rem !important;
-                min-height: 48px !important;
-                padding: 0.2rem 0.5rem !important;
-                box-shadow: 0 2px 12px 0 rgba(193,0,59,0.08);
-                background: #fff !important;
-                gap: 0.5rem !important;
-            }
-            #main-header {
-                border-radius: 0 0 1.2rem 1.2rem !important;
-                padding-bottom: 0 !important;
-            }
-            #header-logo-mobile {
-                height: 2rem !important;
-                width: 2rem !important;
-                max-width: 2rem !important;
-            }
-            .header-bottom nav,
-            .header-bottom .flex.items-center {
-                display: none !important;
-            }
-            #mobile-menu-toggle {
-                display: flex !important;
-            }
-            #mobile-nav {
-                display: flex !important;
-            }
-        }
-        #mobile-nav {
-            display: none;
-        }
-        #mobile-nav:not(.translate-x-full) {
-            display: flex;
-        }
-        #mobile-nav-overlay {
-            display: none;
-        }
-        #mobile-nav-overlay:not(.hidden) {
-            display: block;
-        }
     </style>
     <script type="application/ld+json">
     {
@@ -653,17 +612,7 @@
                 </div>
             </div>
             <div class="header-bottom flex flex-row items-center justify-between py-2 px-2 sm:px-4 md:px-8 lg:px-12 bg-white rounded-full shadow-md transition-all duration-300 gap-2 sm:gap-4 md:gap-8">
-                <!-- Hamburger for mobile -->
-                <button id="mobile-menu-toggle" class="md:hidden flex items-center justify-center text-[#c1003b] text-2xl p-2 rounded-lg hover:bg-[#f8e9ef] focus:outline-none" aria-label="Mở menu">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <!-- Logo nhỏ cho mobile -->
-                <a href="#" class="md:hidden flex items-center gap-2">
-                    <img id="header-logo-mobile" src="media/logoc.png" alt="Khet Entertainment Logo" class="h-8 w-8 rounded-md shadow-sm">
-                    <span class="text-lg font-extrabold text-[#c1003b] tracking-tight">Khet</span>
-                </a>
-                <!-- Nav chính (ẩn trên mobile) -->
-                <nav class="flex-1 flex justify-center overflow-x-auto whitespace-nowrap gap-x-2 sm:gap-x-4 md:gap-x-8 hidden md:flex">
+                <nav class="flex-1 flex justify-center overflow-x-auto whitespace-nowrap gap-x-2 sm:gap-x-4 md:gap-x-8">
                     <a href="#about" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">Giới Thiệu</a>
                     <a href="#blog" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">BÀI ĐĂNG</a>
                     <a href="#ecosystem" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">CÁC KÊNH NỔI BẬT</a>
@@ -672,8 +621,7 @@
                     <a href="#team" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">THÀNH VIÊN</a>
                     <a href="#contact" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">LIÊN HỆ</a>
                 </nav>
-                <!-- Nút chính (ẩn trên mobile) -->
-                <div class="hidden md:flex items-center gap-1 sm:gap-2 md:gap-4">
+                <div class="flex items-center gap-1 sm:gap-2 md:gap-4">
                     <a href="https://www.facebook.com/khetentertainment" class="inline-flex items-center gap-1 sm:gap-2 bg-[#c1003b] text-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg font-semibold text-xs sm:text-sm md:text-base hover:bg-[#a00030] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
                         <span class="hidden sm:inline">Fanpage</span>
                         <i class="fab fa-facebook-f text-xs sm:text-sm md:text-base"></i>
@@ -688,37 +636,6 @@
                 </div>
             </div>
         </div>
-        <!-- Mobile nav overlay -->
-        <div id="mobile-nav-overlay" class="fixed inset-0 bg-black/40 z-40 hidden"></div>
-        <!-- Mobile nav menu -->
-        <nav id="mobile-nav" class="fixed top-0 right-0 h-full w-64 bg-white z-50 shadow-lg transform translate-x-full transition-transform duration-300 flex flex-col p-6 gap-4">
-            <div class="flex items-center justify-between mb-6">
-                <div class="flex items-center gap-2">
-                    <img src="media/logoc.png" alt="Khet Entertainment Logo" class="h-8 w-8 rounded-md">
-                    <span class="text-lg font-extrabold text-[#c1003b]">Khet</span>
-                </div>
-                <button id="mobile-menu-close" class="text-[#c1003b] text-2xl p-2 rounded-lg hover:bg-[#f8e9ef] focus:outline-none" aria-label="Đóng menu">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <a href="#about" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">Giới Thiệu</a>
-            <a href="#blog" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">BÀI ĐĂNG</a>
-            <a href="#ecosystem" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">CÁC KÊNH NỔI BẬT</a>
-            <a href="#achievements" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">KẾ HOẠCH</a>
-            <a href="#partners" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">KÊNH</a>
-            <a href="#team" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">THÀNH VIÊN</a>
-            <a href="#contact" class="py-2 px-3 rounded-lg text-gray-800 font-semibold hover:bg-[#f8e9ef] transition">LIÊN HỆ</a>
-            <div class="flex flex-col gap-2 mt-6">
-                <a href="https://www.facebook.com/khetentertainment" class="inline-flex items-center gap-2 bg-[#c1003b] text-white px-4 py-2 rounded-lg font-semibold hover:bg-[#a00030] transition-all duration-300 shadow-md justify-center">
-                    <span>Fanpage</span>
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#signin" class="inline-flex items-center gap-2 border-2 border-[#c1003b] text-[#c1003b] px-4 py-2 rounded-lg font-semibold hover:bg-[#c1003b] hover:text-white transition-all duration-300 justify-center">
-                    <i class="fas fa-user"></i>
-                    <span>Đăng nhập</span>
-                </a>
-            </div>
-        </nav>
     </header>
 
     <section class="hero-section h-screen flex items-center justify-center text-white overflow-hidden pt-20">
@@ -1407,22 +1324,7 @@
             }
         });
 
-        // Mobile menu logic
-        const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
-        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-        const mobileMenuClose = document.getElementById('mobile-menu-close');
-        function openMobileNav() {
-            mobileNav.classList.remove('translate-x-full');
-            mobileNavOverlay.classList.remove('hidden');
-        }
-        function closeMobileNav() {
-            mobileNav.classList.add('translate-x-full');
-            mobileNavOverlay.classList.add('hidden');
-        }
-        mobileMenuToggle && mobileMenuToggle.addEventListener('click', openMobileNav);
-        mobileMenuClose && mobileMenuClose.addEventListener('click', closeMobileNav);
-        mobileNavOverlay && mobileNavOverlay.addEventListener('click', closeMobileNav);
+        // Đã xóa các đoạn JS liên quan đến mobile menu để mã sạch hoàn toàn
     </script>
 </body>
 </html>
