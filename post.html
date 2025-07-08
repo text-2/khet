@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bài viết từ GitHub</title>
+  <title>Bài đăng mới nhất</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -23,6 +23,56 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-800">
+
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-xl shadow-lg transition-all duration-300 ease-in-out rounded-b-2xl border-b border-white/20">
+        <div class="container mx-auto flex flex-col md:space-y-0 md:flex-col">
+            <div class="header-top hidden md:flex justify-between items-center py-3 px-4 md:px-8 lg:px-12 transition-all duration-300">
+                <div class="flex items-center space-x-3">
+                    <img id="header-logo" src="https://placehold.co/140x50/c1003b/ffffff?text=KHET" alt="Khet Entertainment Logo - Nền tảng truyền thông số, giải trí, showbiz, âm nhạc, phim ảnh" class="h-12 md:h-14 lg:h-16 transition-all duration-300 rounded-md shadow-sm">
+                    <span class="text-3xl font-extrabold text-[#c1003b] tracking-tight hidden md:inline-block">Entertainment </span>
+                </div>
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-2">
+                        <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-envelope text-[#c1003b]"></i></span>
+                        <div class="flex flex-col text-left">
+                            <span class="font-bold text-base">Email Khet </span>
+                            <span class="text-sm">khetnews@gmail.com</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="border border-[#c1003b] rounded-full p-2"><i class="fas fa-phone text-[#c1003b]"></i></span>
+                        <div class="flex flex-col text-left">
+                            <span class="font-bold text-base">Zalo Phone</span>
+                            <span class="text-sm"> 0899864943</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="header-bottom flex flex-row items-center justify-between py-2 px-2 sm:px-4 md:px-8 lg:px-12 bg-white rounded-full shadow-md transition-all duration-300 gap-2 sm:gap-4 md:gap-8">
+                <nav class="flex-1 flex justify-center overflow-x-auto whitespace-nowrap gap-x-2 sm:gap-x-4 md:gap-x-8">
+                    <a href="/index.html#about" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">Giới Thiệu</a>
+                    <a href="/index.html#blog" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">BÀI ĐĂNG</a>
+                    <a href="/index.html#ecosystem" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">CÁC KÊNH NỔI BẬT</a>
+                    <a href="/index.html#achievements" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">KẾ HOẠCH</a>
+                    <a href="/index.html#partners" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">KÊNH</a>
+                    <a href="/index.html#team" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">THÀNH VIÊN</a>
+                    <a href="/index.html#contact" class="text-gray-800 hover:text-red-600 font-semibold text-xs sm:text-sm md:text-base tracking-wide transition-colors duration-200 px-1 sm:px-2">LIÊN HỆ</a>
+                </nav>
+                <div class="flex items-center gap-1 sm:gap-2 md:gap-4">
+                    <a href="https://www.facebook.com/khetentertainment" class="inline-flex items-center gap-1 sm:gap-2 bg-[#c1003b] text-white px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg font-semibold text-xs sm:text-sm md:text-base hover:bg-[#a00030] transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-105">
+                        <span class="hidden sm:inline">Fanpage</span>
+                        <i class="fab fa-facebook-f text-xs sm:text-sm md:text-base"></i>
+                    </a>
+                    <a href="#signin" class="inline-flex items-center gap-1 sm:gap-2 border-2 border-[#c1003b] text-[#c1003b] px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 rounded-lg font-semibold text-xs sm:text-sm md:text-base hover:bg-[#c1003b] hover:text-white transition-all duration-300">
+                        <i class="fas fa-user text-xs sm:text-sm md:text-base"></i>
+                        <span class="hidden sm:inline">Đăng nhập</span>
+                    </a>
+                    <span class="w-px h-6 bg-gray-300 mx-1 sm:mx-2"></span>
+                    <span class="text-lg sm:text-xl md:text-2xl"><img src="media/logoc.png" alt="Khet Entertainment - Logo chính thức" class="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 rounded-full object-cover"></span>
+                </div>
+            </div>
+        </div>
+    </header>
 
   <div class="container mx-auto py-12 px-4">
     <h1 class="text-3xl font-bold mb-8 text-center">📚 Bài viết mới nhất</h1>
