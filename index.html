@@ -425,6 +425,25 @@
             0% { box-shadow: 0 0 16px 2px #ff6a00cc, 0 2px 8px #c1003bcc; }
             100% { box-shadow: 0 0 32px 8px #ff6a00cc, 0 4px 16px #c1003bcc; }
         }
+        @media (max-width: 768px) {
+            .header-top {
+                display: none !important;
+            }
+            .header-bottom {
+                padding-top: 0.25rem !important;
+                padding-bottom: 0.25rem !important;
+                border-radius: 1rem !important;
+                min-height: 48px !important;
+            }
+            #main-header {
+                border-radius: 0 0 1.5rem 1.5rem !important;
+                padding-bottom: 0 !important;
+            }
+            #header-logo {
+                height: 2rem !important;
+                max-width: 80px !important;
+            }
+        }
     </style>
     <script type="application/ld+json">
     {
